@@ -1,13 +1,13 @@
-Università degli Studi di Camerino
-Scuola di Scienze e Tecnologie
-Corso di Laurea in Informatica
-Corso di Laurea in Informatica per la Comunicazione Digitale
-Corso di Algoritmi e Strutture Dati 2024/2025
-Parte di Laboratorio (6 CFU)
+<h1 style="text-align:center;">Università degli Studi di Camerino</h1>
+<h1 style="text-align:center;">Scuola di Scienze e Tecnologie</h1>
+<h1 style="text-align:center;">Corso di Laurea in Informatica</h1>
+<h1 style="text-align:center;">Corso di Laurea in Informatica per la Comunicazione Digitale</h1>
+<h1 style="text-align:center;">Corso di Algoritmi e Strutture Dati 2024/2025</h1>
+<h1 style="text-align:center;">Parte di Laboratorio (6 CFU)</h1>
  
 Istruzioni per la realizzazione del Progetto 1
 
-ASDL2425MP1: Implementazione e Validazione di un Sistema Basato su Alberi di Merkle
+Progetto1: Implementazione e Validazione di un Sistema Basato su Alberi di Merkle
 
 Introduzione a Merkle Tree e Merkle Proof
 
@@ -15,8 +15,8 @@ Un Merkle Tree (o albero di Merkle) è una struttura dati ad albero binario util
 
 Struttura di un Merkle Tree
 Un Merkle Tree è composto da nodi, ciascuno dei quali contiene un valore hash. Esistono due tipi di nodi:
-	1.	Foglie: Sono i nodi più in basso nell’albero e rappresentano gli hash dei dati originali.
-	2.	Nodi intermedi: Rappresentano gli hash ottenuti combinando gli hash dei nodi figli (sinistro e destro).
+1. Foglie: Sono i nodi più in basso nell’albero e rappresentano gli hash dei dati originali.
+2. Nodi intermedi: Rappresentano gli hash ottenuti combinando gli hash dei nodi figli (sinistro e destro).
 
 L’hash root (o radice) è il nodo più in alto dell’albero ed è calcolato combinando gli hash intermedi fino a raggiungere un unico valore.
 
