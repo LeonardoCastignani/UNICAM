@@ -1,9 +1,9 @@
 <p align="center">
-Università degli Studi di Camerino
-Scuola di Scienze e Tecnologie
-Corso di Laurea in Informatica
-Corso di Laurea in Informatica per la Comunicazione Digitale
-Corso di Algoritmi e Strutture Dati 2024/2025
+Università degli Studi di Camerino<br>
+Scuola di Scienze e Tecnologie<br>
+Corso di Laurea in Informatica<br>
+Corso di Laurea in Informatica per la Comunicazione Digitale<br>
+Corso di Algoritmi e Strutture Dati 2024/2025<br>
 Parte di Laboratorio (6 CFU)
 </p> 
 Istruzioni per la realizzazione del Progetto 1
