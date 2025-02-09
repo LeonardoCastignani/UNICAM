@@ -7,9 +7,9 @@
   Parte di Laboratorio (6 CFU)
 </h2>
 
-Istruzioni per la realizzazione del Progetto 1
+<h3 align="center">Istruzioni per la realizzazione del Progetto 1</h3>
 
-ASDL2425MP1: Implementazione e Validazione di un Sistema Basato su Alberi di Merkle
+<h4 align="center">Progetto 1: Implementazione e Validazione di un Sistema Basato su Alberi di Merkle</h4>
 
 Introduzione a Merkle Tree e Merkle Proof
 
