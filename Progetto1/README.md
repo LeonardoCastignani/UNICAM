@@ -9,16 +9,16 @@
 
 <h3 align="center">Istruzioni per la realizzazione del Progetto 1</h3>
 
-<h4 align="center">Progetto 1: Implementazione e Validazione di un Sistema Basato su Alberi di Merkle</h4>
+<h2 align="center">Progetto 1: Implementazione e Validazione di un Sistema Basato su Alberi di Merkle</h2>
+<br>
+<b>Introduzione a Merkle Tree e Merkle Proof</b>
 
-Introduzione a Merkle Tree e Merkle Proof
+Un <b>Merkle Tree</b> (o albero di Merkle) è una struttura dati ad albero binario utilizzata per garantire l’integrità e l’autenticità di un insieme di dati. Gli alberi di Merkle sono particolarmente utili in contesti come blockchain, sistemi di file distribuiti e database, dove è fondamentale verificare rapidamente se un dato appartiene a un insieme senza dover scaricare e analizzare tutto l’insieme.
 
-Un Merkle Tree (o albero di Merkle) è una struttura dati ad albero binario utilizzata per garantire l’integrità e l’autenticità di un insieme di dati. Gli alberi di Merkle sono particolarmente utili in contesti come blockchain, sistemi di file distribuiti e database, dove è fondamentale verificare rapidamente se un dato appartiene a un insieme senza dover scaricare e analizzare tutto l’insieme.
-
-Struttura di un Merkle Tree
+<b>Struttura di un Merkle Tree</b>
 Un Merkle Tree è composto da nodi, ciascuno dei quali contiene un valore hash. Esistono due tipi di nodi:
-	1.	Foglie: Sono i nodi più in basso nell’albero e rappresentano gli hash dei dati originali.
-	2.	Nodi intermedi: Rappresentano gli hash ottenuti combinando gli hash dei nodi figli (sinistro e destro).
+1. <b>Foglie</b>: Sono i nodi più in basso nell’albero e rappresentano gli hash dei dati originali.
+2. <b>Nodi intermedi</b>: Rappresentano gli hash ottenuti combinando gli hash dei nodi figli (sinistro e destro).
 
 L’hash root (o radice) è il nodo più in alto dell’albero ed è calcolato combinando gli hash intermedi fino a raggiungere un unico valore.
 
