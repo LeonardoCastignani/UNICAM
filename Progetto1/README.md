@@ -1,11 +1,12 @@
 <p align="center">
-Università degli Studi di Camerino<br>
-Scuola di Scienze e Tecnologie<br>
-Corso di Laurea in Informatica<br>
-Corso di Laurea in Informatica per la Comunicazione Digitale<br>
-Corso di Algoritmi e Strutture Dati 2024/2025<br>
-Parte di Laboratorio (6 CFU)
-</p> 
+## Università degli Studi di Camerino<br>
+## Scuola di Scienze e Tecnologie<br>
+## Corso di Laurea in Informatica<br>
+## Corso di Laurea in Informatica per la Comunicazione Digitale<br>
+## Corso di Algoritmi e Strutture Dati 2024/2025<br>
+## Parte di Laboratorio (6 CFU)
+</p>
+
 Istruzioni per la realizzazione del Progetto 1
 
 ASDL2425MP1: Implementazione e Validazione di un Sistema Basato su Alberi di Merkle
