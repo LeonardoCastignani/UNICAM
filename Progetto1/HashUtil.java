@@ -4,9 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * Classe fornita di utilità per calcolare gli hash MD5.
- * 
- * @author Luca Tesei, Marco Caputo
+ * Classe fornita di utilitÃ  per calcolare gli hash MD5.
  */
 public class HashUtil {
 
@@ -28,7 +26,7 @@ public class HashUtil {
      *                  l'array di byte di cui calcolare l'hash.
      * @return l'hash come stringa esadecimale.
      * @throws RuntimeException
-     *                              se l'algoritmo di hashing non è disponibile.
+     *                              se l'algoritmo di hashing non Ã¨ disponibile.
      */
     public static String computeMD5(byte[] input) {
         try {
@@ -48,8 +46,8 @@ public class HashUtil {
      * Converte un valore intero (int) in un array di byte.
      *
      * Questo metodo suddivide l'intero in quattro byte, rappresentandolo nel
-     * formato big-endian, ovvero dal byte più significativo (MSB) al byte meno
-     * significativo (LSB). Questo è utile per trasformare un valore numerico in
+     * formato big-endian, ovvero dal byte piÃ¹ significativo (MSB) al byte meno
+     * significativo (LSB). Questo Ã¨ utile per trasformare un valore numerico in
      * un formato compatibile con algoritmi di hashing o protocolli di
      * comunicazione che richiedono una rappresentazione in byte.
      *
