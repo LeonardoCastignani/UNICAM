@@ -2,9 +2,6 @@ package it.unicam.cs.asdl2425.mp1;
 
 /**
  * Rappresenta un nodo di un albero di Merkle.
- * 
- * @author Luca Tesei, Marco Caputo (template), CASTIGNANI LEONARDO
- * 											    leonardo.castignani@studenti.unicam.it
  */
 public class MerkleNode {
     private final String hash; // Hash associato al nodo.
@@ -69,12 +66,12 @@ public class MerkleNode {
     }
 
     /**
-     * Restituisce true se il nodo è una foglia, false altrimenti.
+     * Restituisce true se il nodo Ã¨ una foglia, false altrimenti.
      *
-     * @return true se il nodo è una foglia, false altrimenti.
+     * @return true se il nodo Ã¨ una foglia, false altrimenti.
      */
     public boolean isLeaf() {
-    	// Un nodo è una foglia se entrambi i figli sono null
+    	// Un nodo Ã¨ una foglia se entrambi i figli sono null
     	return this.left == null && this.right == null;
     }
 
@@ -86,13 +83,13 @@ public class MerkleNode {
     /* due nodi sono uguali se hanno lo stesso hash */
     @Override
     public boolean equals(Object obj) {
-    	// Verifico se l'oggetto passato è null
+    	// Verifico se l'oggetto passato Ã¨ null
         if(obj == null) return false;
         
         // Controllo se l'istanza corrente e l'oggetto passato sono lo stesso oggetto
         if(this == obj) return true;
         
-        // Verifico se l'oggetto passato è un'istanza di MerkleNode
+        // Verifico se l'oggetto passato Ã¨ un'istanza di MerkleNode
         if(!(obj instanceof MerkleNode)) return false;
         
         // Effettuo il cast dell'oggetto passato a MerkleNode
@@ -112,7 +109,7 @@ public class MerkleNode {
         int risultato = 1;
         
         // Calcolo il codice hash sull'hash dell'oggetto corrente
-        // Se l'hash è null, uso 0; altrimenti, uso il codice hash dell'hash stringa
+        // Se l'hash Ã¨ null, uso 0; altrimenti, uso il codice hash dell'hash stringa
         return primo * risultato + (this.hash == null ? 0 : this.hash.hashCode());
     }
 }
