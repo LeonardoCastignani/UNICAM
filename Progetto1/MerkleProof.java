@@ -7,9 +7,6 @@ package it.unicam.cs.asdl2425.mp1;
  * MerkleProofHash che rappresentano i passaggi necessari per validare un dato
  * elemento o branch in un albero di Merkle decisi al momento di costruzione
  * della prova.
- * 
- * @author Luca Tesei, Marco Caputo (template), CASTIGNANI LEONARDO
- * 											    leonardo.castignani@studenti.unicam.it
  */
 public class MerkleProof {
 
@@ -20,7 +17,7 @@ public class MerkleProof {
     private final HashLinkedList<MerkleProofHash> proof;
 
     /**
-     * L'hash della radice dell'albero di Merkle per il quale la prova è stata
+     * L'hash della radice dell'albero di Merkle per il quale la prova Ã¨ stata
      * costruita.
      */
     private final String rootHash;
@@ -35,8 +32,8 @@ public class MerkleProof {
     /**
      * Costruisce una nuova prova di Merkle per un dato albero di Merkle,
      * specificando la radice dell'albero e la lunghezza massima della prova. La
-     * lunghezza massima della prova è il numero di hash che la compongono
-     * quando completa, oltre il quale non è possibile aggiungere altri hash.
+     * lunghezza massima della prova Ã¨ il numero di hash che la compongono
+     * quando completa, oltre il quale non Ã¨ possibile aggiungere altri hash.
      *
      * @param rootHash
      *                     l'hash della radice dell'albero di Merkle.
@@ -64,7 +61,7 @@ public class MerkleProof {
     /**
      * Aggiunge un hash alla prova di Merkle, specificando se esso dovrebbe
      * essere concatenato a sinistra o a destra durante la verifica della prova.
-     * Se la prova è già completa, ovvero ha già raggiunto il massimo numero di
+     * Se la prova Ã¨ giÃ  completa, ovvero ha giÃ  raggiunto il massimo numero di
      * hash deciso alla sua costruzione, l'hash non viene aggiunto e la funzione
      * restituisce false.
      *
@@ -73,19 +70,19 @@ public class MerkleProof {
      * @param isLeft
      *                   true se l'hash dovrebbe essere concatenato a sinistra,
      *                   false altrimenti.
-     * @return true se l'hash è stato aggiunto con successo, false altrimenti.
+     * @return true se l'hash Ã¨ stato aggiunto con successo, false altrimenti.
      */
     public boolean addHash(String hash, boolean isLeft) {
-    	// Controllo se l'hash fornito è null, se lo è lancio un'eccezione 
+    	// Controllo se l'hash fornito Ã¨ null, se lo Ã¨ lancio un'eccezione 
     	if(hash == null)
     		throw new IllegalArgumentException("AH: parametro hash null");
 
-    	// Verifico se la lunghezza massima della prova è già stata raggiunta
+    	// Verifico se la lunghezza massima della prova Ã¨ giÃ  stata raggiunta
         if(this.proof.getSize() >= this.length) return false;
 
         // Aggiungo un nuovo MerkleProofHash alla coda della lista concatenata
         this.proof.addAtTail(new MerkleProofHash(hash, isLeft));
-        // Restituisco true per indicare che l'hash è stato aggiunto con successo
+        // Restituisco true per indicare che l'hash Ã¨ stato aggiunto con successo
         return true;
     }
 
@@ -140,13 +137,13 @@ public class MerkleProof {
          */
         @Override
         public boolean equals(Object obj) {
-        	// Controllo se l'oggetto fornito è null, se lo è restituisco false
+        	// Controllo se l'oggetto fornito Ã¨ null, se lo Ã¨ restituisco false
             if(obj == null) return false;
             
             // Controllo se l'oggetto corrente e l'oggetto passato sono lo stesso riferimento
             if(this == obj) return true;
             
-            // Controllo se l'oggetto passato non è un'istanza di MerkleProofHash
+            // Controllo se l'oggetto passato non Ã¨ un'istanza di MerkleProofHash
             if(!(obj instanceof MerkleProofHash)) return false;
             
             // Effettuo un cast sicuro a MerkleProofHash
@@ -179,18 +176,18 @@ public class MerkleProof {
     /**
      * Valida un dato elemento per questa prova di Merkle. La verifica avviene
      * combinando l'hash del dato con l'hash del primo oggetto MerkleProofHash
-     * in un nuovo hash, il risultato con il successivo e così via fino
+     * in un nuovo hash, il risultato con il successivo e cosÃ¬ via fino
      * all'ultimo oggetto, e controllando che l'hash finale coincida con quello
      * del nodo radice dell'albero di Merkle orginale.
      *
      * @param data
      *                 l'elemento da validare.
-     * @return true se il dato è valido secondo la prova; false altrimenti.
+     * @return true se il dato Ã¨ valido secondo la prova; false altrimenti.
      * @throws IllegalArgumentException
-     *                                      se il dato è null.
+     *                                      se il dato Ã¨ null.
      */
     public boolean proveValidityOfData(Object data) {
-    	// Controllo se l'oggetto fornito è null, se lo è lancio un'eccezione
+    	// Controllo se l'oggetto fornito Ã¨ null, se lo Ã¨ lancio un'eccezione
     	if(data == null)
     		throw new IllegalArgumentException("PVD: parametro data null");
 
@@ -207,25 +204,25 @@ public class MerkleProof {
             else hashCorrente = HashUtil.computeMD5((hashCorrente + hashProva.getHash()).getBytes());
         }
 
-        // Confronto l'hash risultante con l'hash della radice dell'albero Merkle. Se coincidono, il dato è valido
+        // Confronto l'hash risultante con l'hash della radice dell'albero Merkle. Se coincidono, il dato Ã¨ valido
         return hashCorrente.equals(this.rootHash);
     }
 
     /**
      * Valida un dato branch per questa prova di Merkle. La verifica avviene
      * combinando l'hash del branch con l'hash del primo oggetto MerkleProofHash
-     * in un nuovo hash, il risultato con il successivo e così via fino
+     * in un nuovo hash, il risultato con il successivo e cosÃ¬ via fino
      * all'ultimo oggetto, e controllando che l'hash finale coincida con quello
      * del nodo radice dell'albero di Merkle orginale.
      *
      * @param branch
      *                   il branch da validare.
-     * @return true se il branch è valido secondo la prova; false altrimenti.
+     * @return true se il branch Ã¨ valido secondo la prova; false altrimenti.
      * @throws IllegalArgumentException
-     *                                      se il branch è null.
+     *                                      se il branch Ã¨ null.
      */
     public boolean proveValidityOfBranch(MerkleNode branch) {
-    	// Controllo se l'oggetto fornito è null, se lo è lancio un'eccezione
+    	// Controllo se l'oggetto fornito Ã¨ null, se lo Ã¨ lancio un'eccezione
     	if(branch == null)
     		throw new IllegalArgumentException("PVB: parametro branch null");
 
@@ -242,7 +239,7 @@ public class MerkleProof {
             else hashCorrente = HashUtil.computeMD5((hashCorrente + hashProva.getHash()).getBytes());
         }
 
-        // Confronto l'hash risultante con l'hash della radice dell'albero Merkle. Se coincidono, il dato è valido
+        // Confronto l'hash risultante con l'hash della radice dell'albero Merkle. Se coincidono, il dato Ã¨ valido
         return hashCorrente.equals(this.rootHash);
     }
 }
