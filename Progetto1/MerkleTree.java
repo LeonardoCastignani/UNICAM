@@ -3,18 +3,15 @@ package it.unicam.cs.asdl2425.mp1;
 import java.util.*;
 
 /**
- * Un Merkle Tree, noto anche come hash tree binario, Ë una struttura dati per
- * verificare in modo efficiente l'integrit‡ e l'autenticit‡ dei dati
- * all'interno di un set di dati pi˘ ampio. Viene costruito eseguendo l'hashing
+ * Un Merkle Tree, noto anche come hash tree binario, √® una struttura dati per
+ * verificare in modo efficiente l'integrit√† e l'autenticit√† dei dati
+ * all'interno di un set di dati pi√π ampio. Viene costruito eseguendo l'hashing
  * ricorsivo di coppie di dati (valori hash crittografici) fino a ottenere un
  * singolo hash root. In questa implementazione la verifica di dati avviene
  * utilizzando hash MD5.
- * 
- * @author Luca Tesei, Marco Caputo (template), CASTIGNANI LEONARDO
- * 											    leonardo.castignani@studenti.unicam.it
  *
  * @param <T>
- *                il tipo di dati su cui l'albero Ë costruito.
+ *                il tipo di dati su cui l'albero √® costruito.
  */
 public class MerkleTree<T> {
     /**
@@ -39,10 +36,10 @@ public class MerkleTree<T> {
      *                     un oggetto HashLinkedList contenente i dati e i
      *                     relativi hash.
      * @throws IllegalArgumentException
-     *                                      se la lista Ë null o vuota.
+     *                                      se la lista √® null o vuota.
      */
     public MerkleTree(HashLinkedList<T> hashList) {
-    	// Controllo se la lista di hash Ë null o vuota
+    	// Controllo se la lista di hash √® null o vuota
     	// e genero un'eccezione in tal caso
     	if(hashList == null || hashList.getSize() == 0)
     		throw new IllegalArgumentException("MT: parametro hashList null");
@@ -72,10 +69,10 @@ public class MerkleTree<T> {
                     nodiGenitori.add(new MerkleNode(hashCombinato, sinistra, destra));
                 }
                 else {
-                	// Se c'Ë un nodo dispari, creo un genitore con un solo figlio
+                	// Se c'√® un nodo dispari, creo un genitore con un solo figlio
                     MerkleNode figlioUnico = nodi.get(i);
                     String hashCombinato = HashUtil.computeMD5((figlioUnico.getHash() + "").getBytes());
-                    // Il secondo figlio Ë null
+                    // Il secondo figlio √® null
                     nodiGenitori.add(new MerkleNode(hashCombinato, figlioUnico, null));
                 }
             }
@@ -116,7 +113,7 @@ public class MerkleTree<T> {
     	int height = 0;
     	// Partendo dal nodo radice dell'albero Merkle
         MerkleNode corrente = this.root;
-        // Itero finchÈ il nodo corrente ha almeno un figlio
+        // Itero finch√© il nodo corrente ha almeno un figlio
         while(corrente.getLeft() != null || corrente.getRight() != null) {
         	// Incremento il valore dell'altezza
             height++;
@@ -135,18 +132,18 @@ public class MerkleTree<T> {
      * branch fornito corrisponda alla radice di un sottoalbero, l'indice
      * fornito rappresenta un indice relativo a quel sottoalbero, ovvero un
      * offset rispetto all'indice del primo elemento del blocco di dati che
-     * rappresenta. Se l'hash dell'elemento non Ë presente come dato
+     * rappresenta. Se l'hash dell'elemento non √® presente come dato
      * dell'albero, viene restituito -1.
      *
      * @param branch
      *                   la radice dell'albero di Merkle.
      * @param data
      *                   l'elemento da cercare.
-     * @return l'indice del dato nell'albero; -1 se l'hash del dato non Ë
+     * @return l'indice del dato nell'albero; -1 se l'hash del dato non √®
      *         presente.
      * @throws IllegalArgumentException
      *                                      se il branch o il dato sono null o
-     *                                      se il branch non Ë parte
+     *                                      se il branch non √® parte
      *                                      dell'albero.
      */
     public int getIndexOfData(MerkleNode branch, T data) {
@@ -170,7 +167,7 @@ public class MerkleTree<T> {
      * Se il dato non viene trovato nel nodo corrente, il metodo continua la
      * ricerca ricorsiva nel figlio sinistro e destro del nodo. L'indice di
      * ciascun nodo figlio viene calcolato moltiplicando l'indice del nodo
-     * corrente per 2 (per il figlio sinistro) e per 2 pi˘ 1
+     * corrente per 2 (per il figlio sinistro) e per 2 pi√π 1
      * (per il figlio destro).
      *
      * @param nodo     il nodo corrente dell'albero Merkle in cui cercare il dato
@@ -182,12 +179,12 @@ public class MerkleTree<T> {
      * @return l'indice del nodo che contiene il dato specificato, oppure -1 se
      * 		   il dato non viene trovato
      * 
-     * @throws IllegalArgumentException se il nodo fornito Ë null o se l'hash
-     * 									del dato Ë null
+     * @throws IllegalArgumentException se il nodo fornito √® null o se l'hash
+     * 									del dato √® null
      * 
      */
     private int getIndexOfDataRec(MerkleNode nodo, String dataHash, int indice) {
-    	// Se il nodo Ë null, ritorno -1 per indicare che il dato non Ë stato trovato
+    	// Se il nodo √® null, ritorno -1 per indicare che il dato non √® stato trovato
         if(nodo == null) return -1;
 
         // Se l'hash del nodo corrisponde a quello del dato, ritorno l'indice corrente
@@ -195,7 +192,7 @@ public class MerkleTree<T> {
 
         // Cerco ricorsivamente nel figlio sinistro, moltiplicando l'indice per 2
         int indiceSinistro = getIndexOfDataRec(nodo.getLeft(), dataHash, indice * 2);
-        // Se il dato Ë stato trovato nel ramo sinistro, ritorno il suo indice
+        // Se il dato √® stato trovato nel ramo sinistro, ritorno il suo indice
         if(indiceSinistro != -1) return indiceSinistro;
 
         // Cerco ricorsivamente nel figlio destro, calcolando l'indice come indice * 2 + 1
@@ -207,18 +204,18 @@ public class MerkleTree<T> {
      * indici forniti partono da 0 e corrispondono all'ordine degli hash
      * corrispondenti agli elementi nell'ultimo livello dell'albero da sinistra
      * a destra (e quindi l'ordine degli elementi forniti alla costruzione). Se
-     * l'hash dell'elemento non Ë presente come dato dell'albero, viene
+     * l'hash dell'elemento non √® presente come dato dell'albero, viene
      * restituito -1.
      *
      * @param data
      *                 l'elemento da cercare.
-     * @return l'indice del dato nell'albero; -1 se il dato non Ë presente.
+     * @return l'indice del dato nell'albero; -1 se il dato non √® presente.
      * @throws IllegalArgumentException
-     *                                      se il dato Ë null.
+     *                                      se il dato √® null.
      */
     public int getIndexOfData(T data) {
-    	// Controllo se il dato Ë null
-    	// e lancio un'eccezione se lo Ë
+    	// Controllo se il dato √® null
+    	// e lancio un'eccezione se lo √®
     	if(data == null)
     		throw new IllegalArgumentException("GID2: parametro data null");
     	
@@ -230,17 +227,17 @@ public class MerkleTree<T> {
 
     /**
      * Sottopone a validazione un elemento fornito per verificare se appartiene
-     * all'albero di Merkle, controllando se il suo hash Ë parte dell'albero
+     * all'albero di Merkle, controllando se il suo hash √® parte dell'albero
      * come hash di un nodo foglia.
      *
      * @param data
      *                 l'elemento da validare
-     * @return true se l'hash dell'elemento Ë parte dell'albero; false
+     * @return true se l'hash dell'elemento √® parte dell'albero; false
      *         altrimenti.
      */
     public boolean validateData(T data) {
-    	// Controllo se il dato Ë null
-    	// e lancio un'eccezione se lo Ë
+    	// Controllo se il dato √® null
+    	// e lancio un'eccezione se lo √®
     	if(data == null)
     		throw new IllegalArgumentException("VD: parametro data null");
     	
@@ -255,7 +252,7 @@ public class MerkleTree<T> {
      * struttura ad albero Merkle. Questo metodo esplora l'albero Merkle a
      * partire dal nodo fornito, confrontando l'hash di ciascun nodo con l'hash
      * del dato da verificare. Se l'hash del nodo corrente corrisponde all'hash
-     * del dato, viene restituito true. Se il nodo corrente Ë null o se l'hash
+     * del dato, viene restituito true. Se il nodo corrente √® null o se l'hash
      * del nodo corrente non corrisponde, il metodo continua la ricerca
      * ricorsiva nei figli sinistro e destro del nodo.
      *
@@ -263,14 +260,14 @@ public class MerkleTree<T> {
      * 
      * @param dataHash l'hash del dato da verificare
      * 
-     * @return true se l'hash del dato Ë trovato in un nodo dell'albero, false
+     * @return true se l'hash del dato √® trovato in un nodo dell'albero, false
      * 				altrimenti
      * 
      * @throws IllegalArgumentException se il nodo o l'hash del dato sono null
      * 
      */
     private boolean validateDataRec(MerkleNode nodo, String dataHash) {
-    	// Se il nodo corrente Ë null, restituisco false
+    	// Se il nodo corrente √® null, restituisco false
         if(nodo == null) return false;
         
         // Se l'hash del nodo corrente corrisponde all'hash del dato, restituisco true
@@ -282,18 +279,18 @@ public class MerkleTree<T> {
 
     /**
      * Sottopone a validazione un dato sottoalbero di Merkle, corrispondente
-     * quindi a un blocco di dati, per verificare se Ë valido rispetto a questo
-     * albero e ai suoi hash. Un sottoalbero Ë valido se l'hash della sua radice
-     * Ë uguale all'hash di un qualsiasi nodo intermedio di questo albero. Si
-     * noti che il sottoalbero fornito puÚ corrispondere a una foglia.
+     * quindi a un blocco di dati, per verificare se √® valido rispetto a questo
+     * albero e ai suoi hash. Un sottoalbero √® valido se l'hash della sua radice
+     * √® uguale all'hash di un qualsiasi nodo intermedio di questo albero. Si
+     * noti che il sottoalbero fornito pu√≤ corrispondere a una foglia.
      *
      * @param branch
      *                   la radice del sottoalbero di Merkle da validare.
-     * @return true se il sottoalbero di Merkle Ë valido; false altrimenti.
+     * @return true se il sottoalbero di Merkle √® valido; false altrimenti.
      */
     public boolean validateBranch(MerkleNode branch) {
-    	// Controllo se il branch Ë null
-    	// e lancio un'eccezione se lo Ë
+    	// Controllo se il branch √® null
+    	// e lancio un'eccezione se lo √®
     	if(branch == null)
     		throw new IllegalArgumentException("VB: parametro branch null");
 
@@ -308,7 +305,7 @@ public class MerkleTree<T> {
      * ramo dell'albero Merkle. Questo metodo esplora l'albero Merkle a partire
      * dal nodo fornito, confrontando l'hash di ciascun nodo con l'hash del ramo
      * da verificare. Se l'hash del nodo corrente corrisponde all'hash del ramo,
-     * viene restituito true. Se il nodo corrente Ë null o se l'hash del nodo
+     * viene restituito true. Se il nodo corrente √® null o se l'hash del nodo
      * corrente non corrisponde, il metodo continua la ricerca ricorsiva nei
      * figli sinistro e destro del nodo.
      *
@@ -317,14 +314,14 @@ public class MerkleTree<T> {
      * 
      * @param branchHash l'hash del ramo da verificare
      * 
-     * @return true se l'hash del ramo Ë trovato in un nodo dell'albero,
+     * @return true se l'hash del ramo √® trovato in un nodo dell'albero,
      * 				false altrimenti
      * 
      * @throws IllegalArgumentException se il nodo o l'hash del ramo sono null
      * 
      */
     private boolean validateBranchRec(MerkleNode nodo, String branchHash) {
-    	// Se il nodo corrente Ë null, restituisco false
+    	// Se il nodo corrente √® null, restituisco false
         if(nodo == null) return false;
 
         // Se l'hash del nodo corrente corrisponde all'hash del branch, restituisco true
@@ -340,20 +337,20 @@ public class MerkleTree<T> {
     }
 
     /**
-     * Sottopone a validazione un dato albero di Merkle per verificare se Ë
-     * valido rispetto a questo albero e ai suoi hash. Grazie alle propriet‡
-     * degli alberi di Merkle, ciÚ puÚ essere fatto in tempo costante.
+     * Sottopone a validazione un dato albero di Merkle per verificare se √®
+     * valido rispetto a questo albero e ai suoi hash. Grazie alle propriet√†
+     * degli alberi di Merkle, ci√≤ pu√≤ essere fatto in tempo costante.
      *
      * @param otherTree
      *                      il nodo radice dell'altro albero di Merkle da
      *                      validare.
-     * @return true se l'altro albero di Merkle Ë valido; false altrimenti.
+     * @return true se l'altro albero di Merkle √® valido; false altrimenti.
      * @throws IllegalArgumentException
-     *                                      se l'albero fornito Ë null.
+     *                                      se l'albero fornito √® null.
      */
     public boolean validateTree(MerkleTree<T> otherTree) {
-    	// Controllo se l'otherTree Ë null
-    	// e lancio un'eccezione se lo Ë
+    	// Controllo se l'otherTree √® null
+    	// e lancio un'eccezione se lo √®
     	if(otherTree == null)
     		throw new IllegalArgumentException("VT: parametro otherTree null");
 
@@ -366,7 +363,7 @@ public class MerkleTree<T> {
     /**
      * Valida ricorsivamente due alberi Merkle verificando se hanno la stessa
      * struttura e gli stessi hash. Questo metodo verifica se due alberi Merkle
-     * sono identici a partire dai nodi forniti. Un albero Ë considerato valido
+     * sono identici a partire dai nodi forniti. Un albero √® considerato valido
      * rispetto all'altro se entrambi i nodi in ciascuna posizione
      * corrispondente hanno lo stesso hash e la stessa struttura. Il metodo
      * utilizza un approccio ricorsivo per confrontare ogni coppia di nodi.
@@ -378,15 +375,15 @@ public class MerkleTree<T> {
      * @return true se gli alberi sono identici in termini di struttura e hash,
      * 				false altrimenti
      * 
-     * @throws IllegalArgumentException se uno dei nodi forniti Ë null
+     * @throws IllegalArgumentException se uno dei nodi forniti √® null
      * 
      */
     private boolean validateTreeRec(MerkleNode nodo, MerkleNode altroNodo) {
     	// Caso base:
-    	// entrambi i nodi sono null, l'albero Ë valido in questa posizione
+    	// entrambi i nodi sono null, l'albero √® valido in questa posizione
         if(nodo == null && altroNodo == null) return true;
         // Caso base:
-        // uno dei due nodi Ë null, l'albero non Ë valido
+        // uno dei due nodi √® null, l'albero non √® valido
         if(nodo == null || altroNodo == null) return false;
 
         // Verifico se gli hash dei due nodi non corrispondono
@@ -396,32 +393,32 @@ public class MerkleTree<T> {
         boolean validSinistra = validateTreeRec(nodo.getLeft(), altroNodo.getLeft());
         boolean validDestra = validateTreeRec(nodo.getRight(), altroNodo.getRight());
 
-        // L'albero Ë valido se entrambi i sotto-alberi sono validi
+        // L'albero √® valido se entrambi i sotto-alberi sono validi
         return validSinistra && validDestra;
     }
 
     /**
-     * Trova gli indici degli elementi di dati non validi (cioË con un hash
+     * Trova gli indici degli elementi di dati non validi (cio√® con un hash
      * diverso) in un dato Merkle Tree, secondo questo Merkle Tree. Grazie alle
-     * propriet‡ degli alberi di Merkle, ciÚ puÚ essere fatto confrontando gli
+     * propriet√† degli alberi di Merkle, ci√≤ pu√≤ essere fatto confrontando gli
      * hash dei nodi interni corrispondenti nei due alberi. Ad esempio, nel caso
      * di un singolo dato non valido, verrebbe percorso un unico cammino di
      * lunghezza pari all'altezza dell'albero. Gli indici forniti partono da 0 e
      * corrispondono all'ordine degli elementi nell'ultimo livello dell'albero
      * da sinistra a destra (e quindi l'ordine degli elementi forniti alla
      * costruzione). Se l'albero fornito ha una struttura diversa, possibilmente
-     * a causa di una quantit‡ diversa di elementi con cui Ë stato costruito e,
+     * a causa di una quantit√† diversa di elementi con cui √® stato costruito e,
      * quindi, non rappresenta gli stessi dati, viene lanciata un'eccezione.
      *
      * @param otherTree
      *                      l'altro Merkle Tree.
      * @throws IllegalArgumentException
-     *                                      se l'altro albero Ë null o ha una
+     *                                      se l'altro albero √® null o ha una
      *                                      struttura diversa.
      * @return l'insieme di indici degli elementi di dati non validi.
      */
     public Set<Integer> findInvalidDataIndices(MerkleTree<T> otherTree) {
-    	// Controllo se l'altro albero Ë nullo o se la sua larghezza Ë diversa da quella dell'albero corrente
+    	// Controllo se l'altro albero √® nullo o se la sua larghezza √® diversa da quella dell'albero corrente
     	// Lancio un'eccezione in caso di parametri non validi
         if(otherTree == null || otherTree.getWidth() != this.width)
         	throw new IllegalArgumentException("FIDI: parametro otherTree null");
@@ -438,7 +435,7 @@ public class MerkleTree<T> {
      * Confronta ricorsivamente due nodi Merkle e identifica le differenze nei
      * loro hash. Questo metodo confronta due nodi Merkle e i loro rispettivi
      * sottoalberi, aggiungendo l'indice dei nodi con hash diversi a un insieme
-     * di indici non validi. Se uno dei nodi Ë nullo, l'indice viene aggiunto
+     * di indici non validi. Se uno dei nodi √® nullo, l'indice viene aggiunto
      * direttamente. Se gli hash dei nodi non corrispondono, il metodo verifica
      * se entrambi i nodi sono foglie; in tal caso, l'indice viene aggiunto,
      * altrimenti la ricerca continua ricorsivamente nei figli sinistro e destro.
@@ -451,11 +448,11 @@ public class MerkleTree<T> {
      * 
      * @param indiciInvalidi l'insieme degli indici dei nodi non validi
      * 
-     * @throws IllegalArgumentException se uno dei nodi forniti Ë null
+     * @throws IllegalArgumentException se uno dei nodi forniti √® null
      * 
      */
     private void compareNodes(MerkleNode nodo1, MerkleNode nodo2, int indice, Set<Integer> indiciInvalidi) {
-    	// Se uno dei due nodi Ë nullo
+    	// Se uno dei due nodi √® nullo
         if(nodo1 == null || nodo2 == null) {
         	// Aggiungo l'indice ai nodi non validi se i nodi sono diversi
             if(nodo1 != nodo2) indiciInvalidi.add(indice);
@@ -481,7 +478,7 @@ public class MerkleTree<T> {
      * foglia contenente il dato. La prova di Merkle dovrebbe fornire una lista
      * di oggetti MerkleProofHash tale per cui, combinando l'hash del dato con
      * l'hash del primo oggetto MerkleProofHash in un nuovo hash, il risultato
-     * con il successivo e cosÏ via fino all'ultimo oggetto, si possa ottenere
+     * con il successivo e cos√¨ via fino all'ultimo oggetto, si possa ottenere
      * l'hash del nodo padre dell'albero. Nel caso in cui non ci, in determinati
      * step della prova non ci siano due hash distinti da combinare, l'hash deve
      * comunque ricalcolato sulla base dell'unico hash disponibile.
@@ -490,11 +487,11 @@ public class MerkleTree<T> {
      *                 l'elemento per cui generare la prova di Merkle.
      * @return la prova di Merkle per il dato.
      * @throws IllegalArgumentException
-     *                                      se il dato Ë null o non Ë parte
+     *                                      se il dato √® null o non √® parte
      *                                      dell'albero.
      */
     public MerkleProof getMerkleProof(T data) {
-    	// Controllo se il parametro data Ë null e lancio un'eccezione
+    	// Controllo se il parametro data √® null e lancio un'eccezione
         if(data == null)
         	throw new IllegalArgumentException("GMP1: parametro data null");
         
@@ -524,7 +521,7 @@ public class MerkleTree<T> {
      * l'albero Merkle a partire dal nodo fornito, cercando un nodo con l'hash
      * specificato. Se viene trovato un nodo con l'hash corrispondente, il
      * metodo aggiunge gli hash dei nodi fratelli alla lista delle prove,
-     * costruendo cosÏ una prova Merkle. Il metodo controlla sia i sottoalberi
+     * costruendo cos√¨ una prova Merkle. Il metodo controlla sia i sottoalberi
      * sinistro che destro e aggiunge gli hash corrispondenti alla lista delle
      * prove per ricostruire il percorso di verifica.
      *
@@ -535,14 +532,14 @@ public class MerkleTree<T> {
      * 
      * @param hashesProva la lista delle prove Merkle per il dato
      * 
-     * @return true se l'hash del dato Ë trovato e la prova Merkle Ë costruita,
+     * @return true se l'hash del dato √® trovato e la prova Merkle √® costruita,
      * 				false altrimenti
      * 
      * @throws IllegalArgumentException se il nodo o l'hash del dato sono null
      * 
      */
     private boolean buildMerkleProofRec(MerkleNode nodo, String hash, List<MerkleProof.MerkleProofHash> hashesProva) {
-    	// Se il nodo Ë null, ritorno false
+    	// Se il nodo √® null, ritorno false
         if(nodo == null) return false;
         
         // Se l'hash del nodo corrisponde all'hash cercato, ritorno true
@@ -574,7 +571,7 @@ public class MerkleTree<T> {
      * nodo branch, rappresentativo di un blocco di dati. La prova di Merkle
      * dovrebbe fornire una lista di oggetti MerkleProofHash tale per cui,
      * combinando l'hash del branch con l'hash del primo oggetto MerkleProofHash
-     * in un nuovo hash, il risultato con il successivo e cosÏ via fino
+     * in un nuovo hash, il risultato con il successivo e cos√¨ via fino
      * all'ultimo oggetto, si possa ottenere l'hash del nodo padre dell'albero.
      * Nel caso in cui non ci, in determinati step della prova non ci siano due
      * hash distinti da combinare, l'hash deve comunque ricalcolato sulla base
@@ -584,11 +581,11 @@ public class MerkleTree<T> {
      *                   il branch per cui generare la prova di Merkle.
      * @return la prova di Merkle per il branch.
      * @throws IllegalArgumentException
-     *                                      se il branch Ë null o non Ë parte
+     *                                      se il branch √® null o non √® parte
      *                                      dell'albero.
      */
     public MerkleProof getMerkleProof(MerkleNode branch) {
-    	// Controllo se il parametro branch Ë null e lancio un'eccezione
+    	// Controllo se il parametro branch √® null e lancio un'eccezione
         if(branch == null)
         	throw new IllegalArgumentException("GMP2: parametro branch null");
         
