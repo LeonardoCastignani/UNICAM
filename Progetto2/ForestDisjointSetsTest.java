@@ -1,5 +1,3 @@
-package it.unicam.cs.asdl2425.mp2;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.HashSet;
