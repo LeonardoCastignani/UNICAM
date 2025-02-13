@@ -1,4 +1,4 @@
-<h1 align="center">
+<h2 align="center">
   Università degli Studi di Camerino<br>
   Scuola di Scienze e Tecnologie<br>
   Corso di Laurea in Informatica<br>
@@ -9,7 +9,7 @@
   Istruzioni per la realizzazione del Progetto 1<br>
   <br>
   P1: Implementazione e Validazione di un Sistema Basato su Alberi di Merkle
-</h1>
+</h2>
 
 ---
 
