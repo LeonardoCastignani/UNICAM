@@ -1,5 +1,3 @@
-package it.unicam.cs.asdl2425.mp2;
-
 import java.util.Set;
 
 /**
