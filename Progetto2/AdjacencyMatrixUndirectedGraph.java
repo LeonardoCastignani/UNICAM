@@ -1,8 +1,3 @@
-/**
- * 
- */
-package it.unicam.cs.asdl2425.mp2;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -37,10 +32,6 @@ import java.util.HashSet;
  * Questa classe non supporta i metodi di cancellazione di nodi e archi, ma
  * supporta tutti i metodi che usano indici, utilizzando l'indice assegnato a
  * ogni nodo in fase di inserimento.
- * 
- * @author Luca Tesei, CASTIGNANI LEONARDO
- *					   leonardo.castignani@studenti.unicam.it
- *
  */
 public class AdjacencyMatrixUndirectedGraph<L> extends Graph<L> {
     /*
@@ -266,8 +257,7 @@ public class AdjacencyMatrixUndirectedGraph<L> extends Graph<L> {
 
     @Override
     public Set<GraphNode<L>> getPredecessorNodesOf(GraphNode<L> node) {
-        throw new UnsupportedOperationException(
-                "Operazione non supportata in un grafo non orientato");
+        throw new UnsupportedOperationException("Operazione non supportata in un grafo non orientato");
     }
 
     @Override
@@ -411,7 +401,6 @@ public class AdjacencyMatrixUndirectedGraph<L> extends Graph<L> {
 
     @Override
     public Set<GraphEdge<L>> getIngoingEdgesOf(GraphNode<L> node) {
-        throw new UnsupportedOperationException(
-                "Operazione non supportata in un grafo non orientato");
+        throw new UnsupportedOperationException("Operazione non supportata in un grafo non orientato");
     }
 }
