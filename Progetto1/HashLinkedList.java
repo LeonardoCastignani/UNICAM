@@ -1,8 +1,5 @@
-package it.unicam.cs.asdl2425.mp1;
-
 import java.util.ArrayList;
 import java.util.Iterator;
-
 import java.util.NoSuchElementException;
 import java.util.ConcurrentModificationException;
 
@@ -31,11 +28,7 @@ import java.util.ConcurrentModificationException;
  * La classe utilizza la classe HashUtil per calcolare l'hash MD5 dei dati.
  *
  * @param <T>
- *                il tipo generico dei dati contenuti nei nodi della lista.
- * 
- * @author Luca Tesei, Marco Caputo (template), CASTIGNANI LEONARDO
- * 											    leonardo.castignani@studenti.unicam.it
- * 
+ *                il tipo generico dei dati contenuti nei nodi della lista. 
  */
 public class HashLinkedList<T> implements Iterable<T> {
     private Node head; // Primo nodo della lista
@@ -99,7 +92,7 @@ public class HashLinkedList<T> implements Iterable<T> {
         nuovoNodo.next = this.head;
         // Aggiorno la testa della lista
         this.head = nuovoNodo;
-        // Se la lista è vuota, aggiorno la coda
+        // Se la lista Ã¨ vuota, aggiorno la coda
         if(this.tail == null) this.tail = nuovoNodo;
         
         // Incrementao la dimensione della lista
@@ -126,7 +119,7 @@ public class HashLinkedList<T> implements Iterable<T> {
         if(this.tail != null) this.tail.next = nuovoNodo;
         // Aggiorno la coda della lista
         this.tail = nuovoNodo;
-        // Se la lista è vuota, aggiorno anche la testa
+        // Se la lista Ã¨ vuota, aggiorno anche la testa
         if(this.head == null) this.head = nuovoNodo;
         
         // Incremento la dimensione della lista
@@ -154,7 +147,7 @@ public class HashLinkedList<T> implements Iterable<T> {
         	// Ottengo il prossimo dato
             T data = iterator.next();
             
-            // Ciclo finché il nodo corrente non è nullo
+            // Ciclo finchÃ© il nodo corrente non Ã¨ nullo
             while(corrente != null) {
             	// Quando trovo il nodo con il dato corretto
                 if(corrente.data.equals(data)) {
@@ -200,7 +193,7 @@ public class HashLinkedList<T> implements Iterable<T> {
         	// Ottengo il prossimo dato
             T data = iterator.next();
             
-            // Ciclo finché il nodo corrente non è nullo
+            // Ciclo finchÃ© il nodo corrente non Ã¨ nullo
             while(corrente != null) {
             	// Quando trovo il nodo con il dato corretto
                 if(corrente.data.equals(data)) {
@@ -227,7 +220,7 @@ public class HashLinkedList<T> implements Iterable<T> {
      *
      * @param data
      *                 il dato da rimuovere.
-     * @return true se l'elemento è stato trovato e rimosso, false altrimenti.
+     * @return true se l'elemento Ã¨ stato trovato e rimosso, false altrimenti.
      */
 	public boolean remove(T data) {
 		// Verifico che il dato non sia nullo
@@ -246,25 +239,25 @@ public class HashLinkedList<T> implements Iterable<T> {
 	    	// Ottengo il prossimo dato
 	        T dataCorrente = iterator.next();
 	        
-	        // Se il dato corrente è uguale al dato da rimuovere
+	        // Se il dato corrente Ã¨ uguale al dato da rimuovere
 	        if(dataCorrente.equals(data)) {
 	        	// Inizio a scorrere i nodi per trovare e rimuovere l'elemento
 	            while(corrente != null) {
-	            	// Se il dato del nodo corrente è quello da rimuovere
+	            	// Se il dato del nodo corrente Ã¨ quello da rimuovere
 	                if(corrente.data.equals(data)) {
-	                	// Se è il primo nodo, aggiorno la testa
+	                	// Se Ã¨ il primo nodo, aggiorno la testa
 	                    if(precedente == null) this.head = corrente.next;
 	                    // Altrimenti aggiorno il nodo precedente
 	                    else precedente.next = corrente.next;	                    
 	                    
-	                    // Se è l'ultimo nodo, aggiorno la coda
+	                    // Se Ã¨ l'ultimo nodo, aggiorno la coda
 	                    if(corrente == this.tail) this.tail = precedente;
 
 	                    // Decremento la dimensione della lista
 	                    this.size--;
 	                    // Aumento il contatore delle modifiche
 	                    this.numeroModifiche++;
-	                    // Ritorno true per indicare che l'elemento è stato rimosso
+	                    // Ritorno true per indicare che l'elemento Ã¨ stato rimosso
 	                    return true;
 	                }
 	                // Sposto il precedente al corrente
@@ -275,7 +268,7 @@ public class HashLinkedList<T> implements Iterable<T> {
 	        }
 	    }
 	    
-	    // Se l'elemento non è stato trovato, ritorno false
+	    // Se l'elemento non Ã¨ stato trovato, ritorno false
 	    return false;
     }
 
@@ -307,14 +300,14 @@ public class HashLinkedList<T> implements Iterable<T> {
         	if(this.numModificheAttese != numeroModifiche)
         		throw new ConcurrentModificationException("NMA diverso NM");
         	
-        	// Restituisco true se il nodo corrente non è nullo
+        	// Restituisco true se il nodo corrente non Ã¨ nullo
             return this.corrente != null;
         }
 
         @Override
         public T next() {
         	// Verifico la presenza di un prossimo elemento,
-        	// se non ci sono più elementi lancio un'eccezione
+        	// se non ci sono piÃ¹ elementi lancio un'eccezione
         	if(!hasNext())
         		throw new NoSuchElementException("No elemento successivo");
         	
