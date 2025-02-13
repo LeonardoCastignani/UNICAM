@@ -1,5 +1,3 @@
-package it.unicam.cs.asdl2425.mp1;
-
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * {@code computeMD5} restituisca il corretto hash MD5 per un array di byte vuoto.</li>
  * 
  * <li>{@link #testComputeMD5_nullInput()}: Verifica che il metodo
- * {@code computeMD5} lanci una {@code NullPointerException} quando l'input è {@code null}.</li>
+ * {@code computeMD5} lanci una {@code NullPointerException} quando l'input Ã¨ {@code null}.</li>
  * </ul>
  */
 class HashUtilTest {
@@ -47,6 +45,6 @@ class HashUtilTest {
     @Test
     void testComputeMD5_nullInput() {
         assertThrows(NullPointerException.class, () -> HashUtil.computeMD5(null),
-                "Dovrebbe lanciare NullPointerException se l'input è null.");
+                "Dovrebbe lanciare NullPointerException se l'input Ã¨ null.");
     }
 }
