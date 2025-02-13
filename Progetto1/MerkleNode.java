@@ -1,5 +1,3 @@
-package it.unicam.cs.asdl2425.mp1;
-
 /**
  * Rappresenta un nodo di un albero di Merkle.
  */
