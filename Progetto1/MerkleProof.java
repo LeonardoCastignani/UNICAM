@@ -1,5 +1,3 @@
-package it.unicam.cs.asdl2425.mp1;
-
 /**
  * Una classe che rappresenta una prova di Merkle per un determinato albero di
  * Merkle ed un suo elemento o branch. Oggetti di questa classe rappresentano un
