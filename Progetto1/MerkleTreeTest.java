@@ -1,5 +1,3 @@
-package it.unicam.cs.asdl2425.mp1;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -49,7 +47,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * {@link #testValidateBranch4()}: Verificano che i branch dell'albero siano validati correttamente.</li>
  * 
  * <li>{@link #testValidateTree1()}, {@link #testValidateTree2()}, {@link #testValidateTree3()},
- * {@link #testValidateTree4()}: Verificano la validit‡ di un MerkleTree rispetto a un altro,
+ * {@link #testValidateTree4()}: Verificano la validit√† di un MerkleTree rispetto a un altro,
  * sia in caso di alberi identici che diversi.</li>
  * 
  * <li>{@link #testFindInvalidDataIndices1()}, {@link #testFindInvalidDataIndices2()},
@@ -64,19 +62,19 @@ import static org.junit.jupiter.api.Assertions.*;
  * per la richiesta di una prova di Merkle per un dato non presente.</li>
  * 
  * <li>{@link #testVerifyProofData()}, {@link #testVerifyProofData2()}, {@link #testVerifyProofData3()},
- * {@link #testVerifyProofData4()}, {@link #testVerifyProofData5()}: Verificano la validit‡ di una
+ * {@link #testVerifyProofData4()}, {@link #testVerifyProofData5()}: Verificano la validit√† di una
  * prova di Merkle per dati presenti e non presenti nell'albero.</li>
  * 
  * <li>{@link #testGetMerkleProofBranch1()}, {@link #testGetMerkleProofBranch2()}: Verificano la generazione
  * di prove di Merkle per branch specifici dell'albero.</li>
  * 
- * <li>{@link #testVerifyProofBranch()}: Verifica la validit‡ di una prova di Merkle per un branch valido.</li>
+ * <li>{@link #testVerifyProofBranch()}: Verifica la validit√† di una prova di Merkle per un branch valido.</li>
  * 
  * <li>{@link #testVerifyProofBranchInvalid()}: Verifica che una prova di Merkle per un branch non valido
  * venga respinta.</li>
  * 
  * <li>{@link #testSingleLeafTree()}: Verifica il comportamento del MerkleTree per un singolo elemento,
- * controllando larghezza, altezza e validit‡ dei dati.</li>
+ * controllando larghezza, altezza e validit√† dei dati.</li>
  * </ul>
  */
 class MerkleTreeTest {
@@ -157,23 +155,23 @@ class MerkleTreeTest {
 
     @Test
     void testGetHeight1() {
-        int expectedHeight = 2; // Con 4 foglie, l'altezza Ë log2(4) = 2
+        int expectedHeight = 2; // Con 4 foglie, l'altezza √® log2(4) = 2
         assertEquals(expectedHeight, merkleTree1.getHeight(),
-                "L'altezza dell'albero non Ë corretta.");
+                "L'altezza dell'albero non √® corretta.");
     }
 
     @Test
     void testGetHeight2() {
-        int expectedHeight = 4; // Con 13 foglie, l'altezza Ë  4
+        int expectedHeight = 4; // Con 13 foglie, l'altezza √®  4
         assertEquals(expectedHeight, merkleTree2.getHeight(),
-                "L'altezza dell'albero non Ë corretta.");
+                "L'altezza dell'albero non √® corretta.");
     }
 
     @Test
     void testGetHeight3() {
-        int expectedHeight = 0; // Con 1 foglia, l'altezza Ë  0
+        int expectedHeight = 0; // Con 1 foglia, l'altezza √®  0
         assertEquals(expectedHeight, merkleTree3.getHeight(),
-                "L'altezza dell'albero non Ë corretta.");
+                "L'altezza dell'albero non √® corretta.");
     }
 
     @Test
