@@ -1,5 +1,3 @@
-package it.unicam.cs.asdl2425.mp1;
-
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -37,7 +35,7 @@ class MerkleNodeTest {
         MerkleNode leaf = new MerkleNode("hash123");
 
         assertEquals("hash123", leaf.getHash(),
-                "L'hash del nodo foglia non è corretto.");
+                "L'hash del nodo foglia non Ã¨ corretto.");
         assertNull(leaf.getLeft(),
                 "Un nodo foglia non dovrebbe avere un figlio sinistro.");
         assertNull(leaf.getRight(),
@@ -53,11 +51,11 @@ class MerkleNodeTest {
         MerkleNode branch = new MerkleNode("branchHash", left, right);
 
         assertEquals("branchHash", branch.getHash(),
-                "L'hash del nodo branch non è corretto.");
+                "L'hash del nodo branch non Ã¨ corretto.");
         assertEquals(left, branch.getLeft(),
-                "Il figlio sinistro del nodo branch non è corretto.");
+                "Il figlio sinistro del nodo branch non Ã¨ corretto.");
         assertEquals(right, branch.getRight(),
-                "Il figlio destro del nodo branch non è corretto.");
+                "Il figlio destro del nodo branch non Ã¨ corretto.");
         assertFalse(branch.isLeaf(),
                 "Il nodo branch non dovrebbe essere identificato come foglia.");
     }
