@@ -1,22 +1,13 @@
-package it.unicam.cs.asdl2425.mp2;
-
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
-//TODO completare gli import necessari
-
-//ATTENZIONE: è vietato includere import a pacchetti che non siano della Java SE
 
 /**
  * Classe singoletto che realizza un calcolatore delle componenti connesse di un
  * grafo non orientato utilizzando una struttura dati efficiente (fornita dalla
  * classe {@ForestDisjointSets<GraphNode<L>>}) per gestire insiemi disgiunti di
  * nodi del grafo che sono, alla fine del calcolo, le componenti connesse.
- * 
- * @author Luca Tesei (template), CASTIGNANI LEONARDO
- *					   			  leonardo.castignani@studenti.unicam.it
  *
  * @param <L>
  *                il tipo delle etichette dei nodi del grafo
