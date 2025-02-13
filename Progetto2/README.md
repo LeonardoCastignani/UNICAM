@@ -12,8 +12,6 @@
 
 ---
 
-# Strutture dati e algoritmi per grafi
-
 ## **Grafo non orientato con matrice di adiacenza**
 La classe `AdjacencyMatrixUndirectedGraph<L>` rappresenta un grafo non orientato utilizzando una **matrice di adiacenza dinamica**:
 - Gli archi sono memorizzati come oggetti (`GraphEdge<L>`).
