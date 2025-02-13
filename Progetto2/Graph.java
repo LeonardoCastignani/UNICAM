@@ -1,8 +1,3 @@
-/**
- * 
- */
-package it.unicam.cs.asdl2425.mp2;
-
 import java.util.Set;
 
 /**
@@ -17,9 +12,6 @@ import java.util.Set;
  * 
  * Le etichette dei nodi sono obbligatorie ed uniche, cioè un nodo non può avere
  * etichetta nulla e due nodi con la stessa etichetta sono lo stesso nodo.
- * 
- * 
- * @author Luca Tesei
  * 
  * @param <L>
  *                etichette dei nodi
@@ -351,8 +343,7 @@ public abstract class Graph<L> {
         if (!this.isDirected())
             return this.getEdgesOf(node).size();
         else
-            return this.getEdgesOf(node).size()
-                    + this.getIngoingEdgesOf(node).size();
+            return this.getEdgesOf(node).size() + this.getIngoingEdgesOf(node).size();
     }
 
 }
