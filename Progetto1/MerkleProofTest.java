@@ -1,5 +1,3 @@
-package it.unicam.cs.asdl2425.mp1;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * 
  * <ul>
  * <li>{@link #testBuildProof1()}: Verifica che una prova di Merkle venga costruita correttamente
- * aggiungendo hash validi, e che non sia possibile aggiungere pi˘ hash del limite specificato.</li>
+ * aggiungendo hash validi, e che non sia possibile aggiungere pi√π hash del limite specificato.</li>
  * 
  * <li>{@link #testBuildProof2()}: Verifica che una prova di Merkle con lunghezza massima 0
  * non consenta l'aggiunta di alcun hash.</li>
@@ -23,10 +21,10 @@ import static org.junit.jupiter.api.Assertions.*;
  * <li>{@link #testBuildProof3()}: Verifica internamente che gli hash inseriti nella prova di Merkle
  * siano memorizzati correttamente e nella posizione corretta (sinistra o destra).</li>
  * 
- * <li>{@link #testVerifyProofOnData1()}: Verifica che la validit‡ di un dato venga confermata
+ * <li>{@link #testVerifyProofOnData1()}: Verifica che la validit√† di un dato venga confermata
  * correttamente rispetto alla prova di Merkle costruita.</li>
  * 
- * <li>{@link #testVerifyProofOnData2()}: Verifica che la validit‡ di un dato singolo (con lunghezza 0 della prova)
+ * <li>{@link #testVerifyProofOnData2()}: Verifica che la validit√† di un dato singolo (con lunghezza 0 della prova)
  * venga confermata correttamente rispetto alla prova di Merkle.</li>
  * 
  * <li>{@link #testVerifyProofOnData3()}: Verifica che un dato non valido venga correttamente respinto
@@ -91,14 +89,14 @@ public class MerkleProofTest {
         proof.addHash(HashUtil.dataToHash("Alice paga Bob"), true);
         proof.addHash(HashUtil.computeMD5((HashUtil.dataToHash("Charlie paga Diana")+HashUtil.dataToHash("Diana paga Alice")).getBytes()), false);
 
-        assertTrue(proof.proveValidityOfData("Bob paga Charlie"), "La prova di validit‡ del dato dovrebbe andare a buon fine");
+        assertTrue(proof.proveValidityOfData("Bob paga Charlie"), "La prova di validit√† del dato dovrebbe andare a buon fine");
     }
 
     @Test
     void testVerifyProofOnData2() {
         MerkleProof proof = new MerkleProof(rootHash2, 0);
 
-        assertTrue(proof.proveValidityOfData(true), "La prova di validit‡ del dato dovrebbe andare a buon fine");
+        assertTrue(proof.proveValidityOfData(true), "La prova di validit√† del dato dovrebbe andare a buon fine");
     }
 
     @Test
@@ -107,6 +105,6 @@ public class MerkleProofTest {
         proof.addHash(HashUtil.dataToHash("Alice paga Bob"), true);
         proof.addHash(HashUtil.computeMD5((HashUtil.dataToHash("Charlie paga Diana") + HashUtil.dataToHash("Diana paga Alice")).getBytes()), false);
 
-        assertFalse(proof.proveValidityOfData("Dato non valido"), "La prova di validit‡ del dato non dovrebbe andare a buon fine");
+        assertFalse(proof.proveValidityOfData("Dato non valido"), "La prova di validit√† del dato non dovrebbe andare a buon fine");
     }
 }
