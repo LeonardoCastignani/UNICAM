@@ -1,5 +1,3 @@
-package it.unicam.cs.asdl2425.mp2;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
@@ -137,8 +135,7 @@ class AdjacencyMatrixUndirectedGraphTest {
         ns.setColor(1);
         g.addNode(ns);
         assertTrue(g.getNodeIndexOf("s") == 0);
-        assertThrows(IllegalArgumentException.class,
-                () -> g.getNodeIndexOf("u"));
+        assertThrows(IllegalArgumentException.class, () -> g.getNodeIndexOf("u"));
         GraphNode<String> nu = new GraphNode<String>("u");
         g.addNode(nu);
         assertTrue(g.getNodeIndexOf("u") == 1);
@@ -148,20 +145,17 @@ class AdjacencyMatrixUndirectedGraphTest {
     @Test
     final void testGetNodeAtIndex() {
         Graph<String> g = new AdjacencyMatrixUndirectedGraph<String>();
-        assertThrows(IndexOutOfBoundsException.class,
-                () -> g.getNodeAtIndex(0));
+        assertThrows(IndexOutOfBoundsException.class, () -> g.getNodeAtIndex(0));
         GraphNode<String> ns = new GraphNode<String>("s");
         ns.setColor(1);
         g.addNode(ns);
-        assertThrows(IndexOutOfBoundsException.class,
-                () -> g.getNodeAtIndex(1));
+        assertThrows(IndexOutOfBoundsException.class, () -> g.getNodeAtIndex(1));
         GraphNode<String> nsTest = new GraphNode<String>("s");
         assertTrue(nsTest.equals(g.getNodeAtIndex(0)));
         assertTrue(g.getNodeAtIndex(0).getColor() == 1);
         GraphNode<String> nu = new GraphNode<String>("u");
         g.addNode(nu);
-        assertThrows(IndexOutOfBoundsException.class,
-                () -> g.getNodeAtIndex(2));
+        assertThrows(IndexOutOfBoundsException.class, () -> g.getNodeAtIndex(2));
         GraphNode<String> nuTest = new GraphNode<String>("u");
         assertTrue(nuTest.equals(g.getNodeAtIndex(1)));
     }
@@ -169,8 +163,7 @@ class AdjacencyMatrixUndirectedGraphTest {
     @Test
     final void testGetAdjacentNodesOf() {
         Graph<String> g = new AdjacencyMatrixUndirectedGraph<String>();
-        assertThrows(NullPointerException.class,
-                () -> g.getAdjacentNodesOf(null));
+        assertThrows(NullPointerException.class, () -> g.getAdjacentNodesOf(null));
         GraphNode<String> ns = new GraphNode<String>("s");
         g.addNode(ns);
         Set<GraphNode<String>> adjNodes = new HashSet<GraphNode<String>>();
@@ -178,8 +171,7 @@ class AdjacencyMatrixUndirectedGraphTest {
         GraphNode<String> nsTest = new GraphNode<String>("s");
         GraphNode<String> nu = new GraphNode<String>("u");
         GraphNode<String> nuTest = new GraphNode<String>("u");
-        assertThrows(IllegalArgumentException.class,
-                () -> g.getAdjacentNodesOf(nu));
+        assertThrows(IllegalArgumentException.class, () -> g.getAdjacentNodesOf(nu));
         g.addNode(nu);
         GraphEdge<String> esu = new GraphEdge<String>(ns, nu, false, 10.1);
         g.addEdge(esu);
@@ -240,13 +232,10 @@ class AdjacencyMatrixUndirectedGraphTest {
         GraphNode<String> ns = new GraphNode<String>("s");
         g.addNode(ns);
         GraphNode<String> nu = new GraphNode<String>("u");
-        assertThrows(IllegalArgumentException.class,
-                () -> g.addEdge(new GraphEdge<String>(ns, nu, false)));
-        assertThrows(IllegalArgumentException.class,
-                () -> g.addEdge(new GraphEdge<String>(nu, ns, false)));
+        assertThrows(IllegalArgumentException.class, () -> g.addEdge(new GraphEdge<String>(ns, nu, false)));
+        assertThrows(IllegalArgumentException.class, () -> g.addEdge(new GraphEdge<String>(nu, ns, false)));
         g.addNode(nu);
-        assertThrows(IllegalArgumentException.class,
-                () -> g.addEdge(new GraphEdge<String>(ns, nu, true)));
+        assertThrows(IllegalArgumentException.class, () -> g.addEdge(new GraphEdge<String>(ns, nu, true)));
         GraphEdge<String> esu = new GraphEdge<String>(ns, nu, false);
         assertTrue(g.addEdge(esu));
         assertTrue(g.containsEdge(new GraphEdge<String>(ns, nu, false)));
@@ -256,15 +245,12 @@ class AdjacencyMatrixUndirectedGraphTest {
     @Test
     final void testContainsEdge() {
         Graph<String> g = new AdjacencyMatrixUndirectedGraph<String>();
-        assertThrows(NullPointerException.class,
-                () -> g.containsEdge(null));
+        assertThrows(NullPointerException.class, () -> g.containsEdge(null));
         GraphNode<String> ns = new GraphNode<String>("s");
         g.addNode(ns);
         GraphNode<String> nu = new GraphNode<String>("u");
-        assertThrows(IllegalArgumentException.class,
-                () -> g.containsEdge(new GraphEdge<String>(ns, nu, false)));
-        assertThrows(IllegalArgumentException.class,
-                () -> g.containsEdge(new GraphEdge<String>(nu, ns, false)));
+        assertThrows(IllegalArgumentException.class, () -> g.containsEdge(new GraphEdge<String>(ns, nu, false)));
+        assertThrows(IllegalArgumentException.class, () -> g.containsEdge(new GraphEdge<String>(nu, ns, false)));
         g.addNode(nu);
         GraphEdge<String> esu = new GraphEdge<String>(ns, nu, false);
         assertFalse(g.containsEdge(new GraphEdge<String>(ns, nu, false)));
@@ -278,11 +264,9 @@ class AdjacencyMatrixUndirectedGraphTest {
         GraphNode<String> ns = new GraphNode<String>("s");
         g.addNode(ns);
         Set<GraphEdge<String>> edgesTest = new HashSet<GraphEdge<String>>();
-        assertThrows(NullPointerException.class,
-                () -> g.getEdgesOf(null));
+        assertThrows(NullPointerException.class, () -> g.getEdgesOf(null));
         GraphNode<String> nu = new GraphNode<String>("u");
-        assertThrows(IllegalArgumentException.class,
-                () -> g.getEdgesOf(nu));
+        assertThrows(IllegalArgumentException.class, () -> g.getEdgesOf(nu));
         g.addNode(nu);
         GraphEdge<String> esu = new GraphEdge<String>(ns, nu, false);
         g.addEdge(esu);
@@ -364,11 +348,9 @@ class AdjacencyMatrixUndirectedGraphTest {
         GraphNode<String> ns = new GraphNode<String>("s");
         g.addNode(ns);
         assertTrue(g.getDegreeOf(ns) == 0);
-        assertThrows(NullPointerException.class,
-                () -> g.getDegreeOf(null));
+        assertThrows(NullPointerException.class, () -> g.getDegreeOf(null));
         GraphNode<String> nu = new GraphNode<String>("u");
-        assertThrows(IllegalArgumentException.class,
-                () -> g.getDegreeOf(nu));
+        assertThrows(IllegalArgumentException.class, () -> g.getDegreeOf(nu));
         g.addNode(nu);
         GraphEdge<String> esu = new GraphEdge<String>(ns, nu, false);
         g.addEdge(esu);
@@ -512,7 +494,7 @@ class AdjacencyMatrixUndirectedGraphTest {
 
         graph.addNode(nodeA);
         graph.addNode(nodeB);
-        // Prova a rimuovere un arco non esistente
+
         assertFalse(graph.removeEdge(edgeAB));
     }
 
@@ -520,7 +502,6 @@ class AdjacencyMatrixUndirectedGraphTest {
     void testRemoveEdgeNull() {
         AdjacencyMatrixUndirectedGraph<String> graph = new AdjacencyMatrixUndirectedGraph<>();
 
-        // Prova a rimuovere un arco null
         assertThrows(NullPointerException.class, () -> graph.removeEdge(null));
     }
 }
