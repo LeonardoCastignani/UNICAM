@@ -1,5 +1,3 @@
-package it.unicam.cs.asdl2425.mp2;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.HashSet;
@@ -9,9 +7,6 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Classe di test per i metodi della classe KruskalMSP.
- * 
- * @author Luca Tesei
- *
  */
 class KruskalMSPTest {
 
@@ -189,9 +184,7 @@ class KruskalMSPTest {
         gr.addEdge(new GraphEdge<String>(g, h, false, 1));
         gr.addEdge(new GraphEdge<String>(h, i, false, 7));
         KruskalMSP<String> alg = new KruskalMSP<String>();
-        assertThrows(NullPointerException.class, () -> {
-            alg.computeMSP(null);
-        });
+        assertThrows(NullPointerException.class, () -> {alg.computeMSP(null);});
         Graph<String> x = new AdjacencyMatrixUndirectedGraph<>();
         GraphNode<String> A = new GraphNode<>("A");
         x.addNode(A);
@@ -202,9 +195,7 @@ class KruskalMSPTest {
         x.addEdge(new GraphEdge<>(A, B, false, 0));
         x.addEdge(new GraphEdge<>(B, C, false, -2));
         // Archi non pesati o negativi
-        assertThrows(IllegalArgumentException.class, () -> {
-            alg.computeMSP(x);
-        });
+        assertThrows(IllegalArgumentException.class, () -> {alg.computeMSP(x);});
     }
 
     @Test
@@ -232,8 +223,7 @@ class KruskalMSPTest {
         result.add(new GraphEdge<>(b, c, false, 2));
 
         // Verifica
-        assertEquals(result, alg.computeMSP(gr),
-                "Il risultato non corrisponde all'MST del grafo completamente connesso.");
+        assertEquals(result, alg.computeMSP(gr), "Il risultato non corrisponde all'MST del grafo completamente connesso.");
     }
 
     @Test
@@ -264,8 +254,7 @@ class KruskalMSPTest {
         result.add(new GraphEdge<>(c, d, false, 4));
 
         // Verifica
-        assertEquals(result, alg.computeMSP(gr),
-                "Il risultato non corrisponde all'MST del grafo sparso.");
+        assertEquals(result, alg.computeMSP(gr), "Il risultato non corrisponde all'MST del grafo sparso.");
     }
 
     @Test
@@ -290,7 +279,6 @@ class KruskalMSPTest {
         result.add(new GraphEdge<>(a, b, false, 3));
 
         // Verifica che l'MST contenga solo l'arco connesso
-        assertEquals(result, alg.computeMSP(gr),
-                "Il risultato non corrisponde all'MST del grafo disconnesso.");
+        assertEquals(result, alg.computeMSP(gr), "Il risultato non corrisponde all'MST del grafo disconnesso.");
     }
 }
