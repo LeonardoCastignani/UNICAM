@@ -1,12 +1,8 @@
-package it.unicam.cs.asdl2425.mp2;
-
 import java.util.Set;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.ArrayList;
-
-//ATTENZIONE: è vietato includere import a pacchetti che non siano della Java SE
 
 /**
  * 
@@ -15,9 +11,6 @@ import java.util.ArrayList;
  * negativi. L'algoritmo implementato si avvale della classe
  * {@code ForestDisjointSets<GraphNode<L>>} per gestire una collezione di
  * insiemi disgiunti di nodi del grafo.
- * 
- * @author Luca Tesei (template), CASTIGNANI LEONARDO
- *					   			  leonardo.castignani@studenti.unicam.it
  * 
  * @param <L>
  *                tipo delle etichette dei nodi del grafo
