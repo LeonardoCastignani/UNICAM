@@ -1,9 +1,4 @@
 /**
- * 
- */
-package it.unicam.cs.asdl2425.mp2;
-
-/**
  * Questa classe raggruppa le operazioni tipicamente associate a un nodo facente
  * parte di un grafo. I nodi del grafo sono etichettati con oggetti della classe
  * {@code L}. L'etichetta non puà essere null. Le classi {@code GraphEdge<L>} e
@@ -23,8 +18,6 @@ package it.unicam.cs.asdl2425.mp2;
  * campo floatingPointDistance come priorità e il campo integerDistance come
  * handle intero in una coda con priorità realizzata con uno heap rappresentato
  * in un array.
- * 
- * @author Luca Tesei
  * 
  * @param <L>
  *                etichette dei nodi
