@@ -13,8 +13,6 @@
 
 ---
 
-## **Introduzione a Merkle Tree e Merkle Proof**
-
 ### **Merkle Tree**
 Un **Merkle Tree** è una struttura dati ad albero binario utilizzata per garantire l'integrità e l'autenticità di un insieme di dati. È composto da nodi, ciascuno dei quali contiene un valore hash:
 - **Foglie**: Rappresentano gli hash dei dati originali.
