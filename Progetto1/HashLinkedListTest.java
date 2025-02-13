@@ -1,5 +1,3 @@
-package it.unicam.cs.asdl2425.mp1;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -42,7 +40,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * <li>{@link #testRemoveMiddleElement()}: Rimuove un elemento al centro della
  * lista e verifica che i puntatori siano aggiornati correttamente.</li>
  * 
- * <li>{@link #testRemoveMultipleElements()}: Rimuove più elementi e verifica
+ * <li>{@link #testRemoveMultipleElements()}: Rimuove piÃ¹ elementi e verifica
  * che la lista sia aggiornata correttamente.</li>
  * 
  * <li>{@link #testRemoveAndAddElements()}: Rimuove un elemento e ne aggiunge un
@@ -52,10 +50,10 @@ import static org.junit.jupiter.api.Assertions.*;
  * inesistente e verifica che il metodo restituisca {@code false}.</li>
  * 
  * <li>{@link #testIteratorHasNext1()}: Verifica che l'iteratore abbia un
- * prossimo elemento quando la lista contiene più elementi.</li>
+ * prossimo elemento quando la lista contiene piÃ¹ elementi.</li>
  * 
  * <li>{@link #testIteratorHasNext2()}: Verifica che l'iteratore non abbia un
- * prossimo elemento quando è stato iterato completamente.</li>
+ * prossimo elemento quando Ã¨ stato iterato completamente.</li>
  * 
  * <li>{@link #testIterator()}: Verifica che l'iteratore attraversi correttamente
  * tutti gli elementi della lista.</li>
@@ -115,7 +113,7 @@ class HashLinkedListTest {
                 + HashUtil.dataToHash("Alice paga Bob") + "\n";
 
         assertEquals(expected, list.buildNodesString(),
-                "La rappresentazione della lista non è corretta.");
+                "La rappresentazione della lista non Ã¨ corretta.");
     }
 
 //    @Test
@@ -129,7 +127,7 @@ class HashLinkedListTest {
 //                + HashUtil.dataToHash("Alice paga Bob") + "\n";
 //
 //        assertEquals(expected, list.buildNodesString(),
-//                "La rappresentazione della lista non è corretta.");
+//                "La rappresentazione della lista non Ã¨ corretta.");
 //    }
 
     @Test
@@ -143,7 +141,7 @@ class HashLinkedListTest {
                 + HashUtil.dataToHash("Bob paga Charlie") + "\n";
 
         assertEquals(expected, list.buildNodesString(),
-                "La rappresentazione della lista non è corretta.");
+                "La rappresentazione della lista non Ã¨ corretta.");
     }
 
     @Test
@@ -157,7 +155,7 @@ class HashLinkedListTest {
                 + HashUtil.dataToHash("Bob paga Charlie") + "\n";
 
         assertEquals(expected, list.buildNodesString(),
-                "La rappresentazione della lista non è corretta.");
+                "La rappresentazione della lista non Ã¨ corretta.");
     }
 
     @Test
@@ -181,7 +179,7 @@ class HashLinkedListTest {
         assertTrue(list.remove("Alice paga Bob"),
                 "L'elemento 'Alice paga Bob' doveva essere rimosso.");
         assertFalse(list.remove("Alice paga Bob"),
-                "L'elemento 'Alice paga Bob' non doveva più esistere.");
+                "L'elemento 'Alice paga Bob' non doveva piÃ¹ esistere.");
     }
 
     @Test
@@ -192,7 +190,7 @@ class HashLinkedListTest {
         assertTrue(list.remove("Bob paga Charlie"),
                 "L'elemento 'Bob paga Charlie' doveva essere rimosso.");
         assertFalse(list.remove("Bob paga Charlie"),
-                "L'elemento 'Bob paga Charlie' non doveva più esistere.");
+                "L'elemento 'Bob paga Charlie' non doveva piÃ¹ esistere.");
     }
 
     @Test
@@ -208,7 +206,7 @@ class HashLinkedListTest {
                 + "Dato: Charlie paga Diana, Hash: "
                 + HashUtil.dataToHash("Charlie paga Diana") + "\n";
         assertEquals(expected, list.buildNodesString(),
-                "La lista non è corretta dopo la rimozione.");
+                "La lista non Ã¨ corretta dopo la rimozione.");
     }
 
     @Test
@@ -228,7 +226,7 @@ class HashLinkedListTest {
                 + "Dato: Charlie paga Diana, Hash: "
                 + HashUtil.dataToHash("Charlie paga Diana") + "\n";
 
-        assertEquals(expected, list.buildNodesString(), "La lista non è corretta dopo le rimozioni.");
+        assertEquals(expected, list.buildNodesString(), "La lista non Ã¨ corretta dopo le rimozioni.");
     }
 
     @Test
@@ -251,7 +249,7 @@ class HashLinkedListTest {
                 + "Dato: Charlie paga Diana, Hash: "
                 + HashUtil.dataToHash("Charlie paga Diana") + "\n";
 
-        assertEquals(expected, list.buildNodesString(), "La lista non è corretta dopo le rimozioni e l'aggiunta.");
+        assertEquals(expected, list.buildNodesString(), "La lista non Ã¨ corretta dopo le rimozioni e l'aggiunta.");
     }
 
     @Test
@@ -299,7 +297,7 @@ class HashLinkedListTest {
                 "Diana paga Alice"
         );
 
-        assertEquals(expectedList, iteratorList, "La lista generata dall'iteratore non è corretta.");
+        assertEquals(expectedList, iteratorList, "La lista generata dall'iteratore non Ã¨ corretta.");
     }
 
     @Test
@@ -316,7 +314,7 @@ class HashLinkedListTest {
                         list.addAtTail("Alice paga Bob");
                     }
                 },
-                "L'iteratore non è fail-fast."
+                "L'iteratore non Ã¨ fail-fast."
         );
     }
 
@@ -334,7 +332,7 @@ class HashLinkedListTest {
                         list.remove("Bob paga Charlie");
                     }
                 },
-                "L'iteratore non è fail-fast."
+                "L'iteratore non Ã¨ fail-fast."
         );
     }
 }
