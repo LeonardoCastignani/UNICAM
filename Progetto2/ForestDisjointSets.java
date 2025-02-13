@@ -1,5 +1,3 @@
-package it.unicam.cs.asdl2425.mp2;
-
 import java.util.Map;
 import java.util.Set;
 
@@ -13,9 +11,6 @@ import java.util.HashSet;
  * foresta di alberi ognuno dei quali rappresenta un insieme disgiunto. Si
  * vedano le istruzioni o il libro di testo Cormen et al. (terza edizione)
  * Capitolo 21 Sezione 3.
- * 
- * @author Luca Tesei (template), CASTIGNANI LEONARDO
- * 								  leonardo.castignani@studenti.unicam.it
  *
  * @param <E>
  *                il tipo degli elementi degli insiemi disgiunti
